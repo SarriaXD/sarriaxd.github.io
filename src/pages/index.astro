@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Pillars from "../components/Pillars.astro";
+import Stack from "../components/Stack.astro";
+import Manifesto from "../components/Manifesto.astro";
+import Craft from "../components/Craft.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base>
+  <Nav />
+  <main class="relative">
+    <Hero />
+    <Pillars />
+    <Stack />
+    <Manifesto />
+    <Craft />
+    <Footer />
+  </main>
+
+  <script>
+    import "../scripts/interactions.ts";
+  </script>
+</Base>

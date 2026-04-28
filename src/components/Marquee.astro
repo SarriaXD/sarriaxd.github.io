@@ -1,0 +1,45 @@
+---
+interface Props {
+  items: string[];
+  reverse?: boolean;
+  duration?: number;
+}
+const { items, reverse = false, duration = 40 } = Astro.props;
+const doubled = [...items, ...items, ...items];
+---
+
+<div
+  class="marquee group/m relative overflow-hidden"
+  style={`--marquee-duration: ${duration}s;`}
+  data-reverse={reverse ? "true" : "false"}
+>
+  <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 md:w-40 bg-gradient-to-r from-[#050608] to-transparent"></div>
+  <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 md:w-40 bg-gradient-to-l from-[#050608] to-transparent"></div>
+
+  <ul class="marquee-track flex w-max gap-3 md:gap-4">
+    {doubled.map((item) => (
+      <li class="shrink-0 rounded-2xl glass px-6 py-4 md:px-8 md:py-5 text-white/75 hover:text-white transition-colors duration-500 select-none">
+        <span class="font-display text-xl md:text-2xl tracking-[-0.02em]">{item}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .marquee-track {
+    animation: marquee var(--marquee-duration) linear infinite;
+  }
+  .marquee[data-reverse="true"] .marquee-track {
+    animation-direction: reverse;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-100% / 3)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+</style>

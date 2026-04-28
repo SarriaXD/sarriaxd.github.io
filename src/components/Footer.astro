@@ -1,0 +1,81 @@
+---
+const links = [
+  { label: "GitHub", href: "https://github.com/sarriaxd", icon: "github" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/qi-wang-sarria", icon: "linkedin" },
+  { label: "Email", href: "mailto:sarria.qi.wang@gmail.com", icon: "mail" },
+];
+---
+
+<section id="contact" class="relative py-32 md:py-44">
+  <div class="mx-auto max-w-6xl px-6 lg:px-10">
+    <div class="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-white/[0.01] p-10 md:p-20">
+      <div
+        class="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full opacity-60 blur-3xl"
+        aria-hidden="true"
+        style="background: radial-gradient(closest-side, rgba(122,162,255,0.18), transparent 70%);"
+      ></div>
+
+      <div class="relative">
+        <p data-reveal class="reveal text-[12px] font-medium uppercase tracking-[0.22em] text-white/45">
+          — Let's build
+        </p>
+        <h2
+          data-reveal
+          class="reveal mt-5 max-w-3xl font-display tracking-[-0.035em] text-balance text-white"
+          style="font-size: clamp(2.25rem, 6vw, 4.5rem); line-height: 1; font-weight: 600;"
+        >
+          Have an idea worth shipping?
+          <span class="text-white/35"> I'd love to hear it.</span>
+        </h2>
+
+        <div data-reveal class="reveal mt-10 flex flex-wrap items-center gap-3">
+          <a
+            href="mailto:sarria.qi.wang@gmail.com"
+            class="magnetic group inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-[14px] font-medium text-black transition-all duration-500 hover:scale-[1.02]"
+          >
+            <span>sarria.qi.wang@gmail.com</span>
+            <span class="grid h-5 w-5 place-items-center rounded-full bg-black/10 transition-transform duration-500 group-hover:translate-x-0.5">
+              <svg width="10" height="10" viewBox="0 0 12 12">
+                <path d="M2 6h7m0 0L6 3m3 3L6 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+          </a>
+
+          {links.map((l) => (
+            <a
+              href={l.href}
+              target={l.href.startsWith("http") ? "_blank" : undefined}
+              rel={l.href.startsWith("http") ? "noreferrer noopener" : undefined}
+              class="magnetic inline-flex items-center gap-2 rounded-full glass px-4 py-3 text-[14px] font-medium text-white/80 transition-all duration-500 hover:bg-white/[0.07] hover:text-white"
+            >
+              {l.icon === "github" && (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56v-2.06c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.34.96.1-.74.4-1.25.73-1.54-2.55-.29-5.24-1.27-5.24-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.15 1.17a10.95 10.95 0 0 1 5.74 0c2.18-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.75.11 3.04.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.36.78 1.05.78 2.13v3.16c0 .31.21.67.8.55C20.21 21.39 23.5 17.07 23.5 12 23.5 5.65 18.35.5 12 .5Z"/>
+                </svg>
+              )}
+              {l.icon === "linkedin" && (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/>
+                </svg>
+              )}
+              {l.icon === "mail" && (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2"/>
+                  <path d="m22 7-10 6L2 7"/>
+                </svg>
+              )}
+              <span>{l.label}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-14 flex flex-col items-start justify-between gap-3 md:flex-row md:items-center text-[12.5px] text-white/40">
+      <p>© {new Date().getFullYear()} Qi Wang. Crafted in Canada.</p>
+      <p class="font-mono tracking-tight">
+        Astro · TypeScript · Tailwind · GSAP
+      </p>
+    </div>
+  </div>
+</section>

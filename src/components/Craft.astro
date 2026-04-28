@@ -1,0 +1,94 @@
+---
+const items = [
+  {
+    tag: "Android",
+    chips: ["Java", "Kotlin"],
+    title: "Native Android",
+    body: "Native Android with Java and Kotlin — full access to the platform, predictable performance, and a tight feedback loop with the device.",
+  },
+  {
+    tag: "Compose",
+    chips: ["Kotlin"],
+    title: "Jetpack Compose",
+    body: "Declarative UI for Android and desktop. The same mental model in two places — fewer surprises, more time spent on the parts that matter.",
+  },
+  {
+    tag: "Spring",
+    chips: ["Java", "Kotlin"],
+    title: "Spring Boot services",
+    body: "Enterprise-grade services that ship quickly. Java for compatibility, Kotlin when I want a more concise expression of the same idea.",
+  },
+  {
+    tag: "Flutter",
+    chips: ["Dart"],
+    title: "Flutter apps",
+    body: "One codebase, two platforms, native performance. Great for moving from idea to user without paying for the divergence twice.",
+  },
+  {
+    tag: "React",
+    chips: ["TypeScript"],
+    title: "Modern web",
+    body: "TypeScript-first React applications — typed at the seams, reactive at the leaves, optimized for the moments a user actually feels.",
+  },
+  {
+    tag: "Python",
+    chips: ["Python"],
+    title: "Data & AI",
+    body: "Python for data work and ML — a rich ecosystem for moving from raw signal to an idea worth shipping.",
+  },
+];
+---
+
+<section id="craft" class="relative py-32 md:py-44">
+  <div class="mx-auto max-w-6xl px-6 lg:px-10">
+    <div class="mb-16 md:mb-20 max-w-2xl">
+      <p data-reveal class="reveal text-[12px] font-medium uppercase tracking-[0.22em] text-white/45">
+        — The craft
+      </p>
+      <h2
+        data-reveal
+        class="reveal mt-5 font-display tracking-[-0.035em] text-balance text-white"
+        style="font-size: clamp(2rem, 5vw, 3.75rem); line-height: 1.05; font-weight: 600;"
+      >
+        Where I spend my hours,<br/>
+        <span class="text-white/35">and why.</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-4 md:gap-5 md:grid-cols-2 lg:grid-cols-3">
+      {items.map((it, i) => (
+        <article
+          data-reveal
+          class="reveal group relative overflow-hidden rounded-2xl border border-white/[0.07] bg-gradient-to-b from-white/[0.025] to-white/[0.005] p-6 md:p-7 transition-all duration-700 hover:border-white/15"
+          style={`transition-delay: ${i * 60}ms;`}
+        >
+          <div
+            class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 group-hover:opacity-100"
+            style="background: radial-gradient(600px circle at var(--mx, 50%) var(--my, 50%), rgba(122,162,255,0.08), transparent 40%);"
+            aria-hidden="true"
+          ></div>
+
+          <div class="relative">
+            <div class="flex items-center justify-between">
+              <span class="rounded-full bg-white/[0.04] px-2.5 py-1 text-[11px] font-medium tracking-tight text-white/70 ring-1 ring-white/10">
+                {it.tag}
+              </span>
+              <div class="flex gap-1.5">
+                {it.chips.map((c) => (
+                  <span class="text-[10px] font-medium uppercase tracking-[0.16em] text-white/35">
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <h3 class="mt-7 text-xl md:text-2xl font-display font-semibold tracking-[-0.02em] text-white leading-tight">
+              {it.title}
+            </h3>
+            <p class="mt-3 text-[14.5px] leading-relaxed text-white/55">{it.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

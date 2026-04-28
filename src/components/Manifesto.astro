@@ -1,0 +1,30 @@
+---
+const lines = [
+  { lead: "I believe", main: "small details", tail: "carry the experience." },
+  { lead: "I believe", main: "motion is meaning", tail: "— never decoration." },
+  { lead: "I believe", main: "the best system", tail: "is the one you don't notice." },
+  { lead: "I believe", main: "shipping", tail: "is the only honest critic." },
+];
+---
+
+<section class="relative py-32 md:py-48">
+  <div class="mx-auto max-w-5xl px-6 lg:px-10">
+    <p data-reveal class="reveal text-[12px] font-medium uppercase tracking-[0.22em] text-white/40">
+      — A short manifesto
+    </p>
+
+    <div class="mt-10 md:mt-14 space-y-7 md:space-y-10">
+      {lines.map((l, i) => (
+        <p
+          data-reveal
+          class="reveal font-display tracking-[-0.025em] text-balance leading-[1.15]"
+          style={`transition-delay: ${i * 110}ms; font-size: clamp(1.6rem, 3.6vw, 2.6rem); font-weight: 500;`}
+        >
+          <span class="text-white/30">{l.lead}</span>
+          <span class="text-white"> {l.main}</span>
+          <span class="text-white/55"> {l.tail}</span>
+        </p>
+      ))}
+    </div>
+  </div>
+</section>
